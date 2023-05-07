@@ -1,8 +1,0 @@
-cc_binary {
-    name: "timer",
-    vendor: true,
-    srcs: [ 
-            "main.cpp",
-            "timer.cpp",
-    ],
-}
