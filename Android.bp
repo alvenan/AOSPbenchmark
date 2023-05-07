@@ -1,0 +1,23 @@
+cc_binary {
+    name: "native_algtest",
+    vendor: true,
+    srcs: [ 
+            "algorithms/algorithms.cpp",
+            "timer/timer.cpp",
+            "bench_test_native/native_test.cpp", 
+    ],
+    cflags: [ "-fexceptions",
+              "-Wreturn-type" ],
+}
+
+cc_binary {
+    name: "jni_algtest",
+    vendor: true,
+    srcs: [ 
+            "algorithms/algorithms.cpp",
+            "timer/timer.cpp",
+            "bench_test_native/native_test.cpp", 
+    ],
+    cflags: [ "-fexceptions",
+              "-Wreturn-type" ],
+}
