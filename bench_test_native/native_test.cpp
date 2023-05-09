@@ -10,15 +10,21 @@ using namespace std;
 int main() {
     Timer *timer = new Timer();
 
-    for(int i=0; i<N_TEST; i++) {
+    for(int i=0; i<=N_TEST; i++) {
         while(timer->getTimerBegin());
 
+        if(i!=0)
+            cout << "Começa o teste " << i << endl;
+        else 
+            cout << "Configurando Testes" << endl;
+
         //Início Chamada de Testes
-        cout << "Saiu do While" << endl;
-        std::this_thread::sleep_for(std::chrono::seconds(2s));
+        // this_thread::sleep_for(std::chrono::seconds(1s));
         //Fim da Chamada de Testes
 
         timer->setTimerEnd();
     }
+
+    delete timer;
     return 0;
 }
