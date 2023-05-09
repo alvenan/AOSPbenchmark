@@ -38,7 +38,7 @@ bool Timer::getTimerBegin() {
         start_file.close();
         return !is_timer_started;
     }
-    return 1;
+    return true;
 }
 
 void Timer::setTimerEnd() {
