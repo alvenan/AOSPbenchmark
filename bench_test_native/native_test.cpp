@@ -1,5 +1,6 @@
 #include <chrono>
 #include <thread>
+#include <signal.h>
 #include "../algorithms/algorithms.h"
 #include "../timer/timer.h"
 
@@ -7,8 +8,13 @@ using namespace std;
 
 #define N_TEST 5
 
+Timer *timer = new Timer();
+
+void finish(int signum);
+
 int main() {
-    Timer *timer = new Timer();
+
+    signal(SIGINT, finish);
 
     for(int i=0; i<=N_TEST; i++) {
         while(timer->getTimerBegin());
@@ -27,4 +33,9 @@ int main() {
 
     delete timer;
     return 0;
+}
+
+void finish(int signum) {
+    delete timer;
+    exit(signum);
 }
