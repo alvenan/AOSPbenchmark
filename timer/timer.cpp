@@ -6,12 +6,11 @@
 #define ON 1
 #define OFF 0
 
-using namespace std;
 using namespace std::this_thread;
 using namespace std::chrono;
 
 static const int start_pin = 20; //IN
-static const int finis_pin = 21; //OFF
+static const int finis_pin = 21; //OUT
 
 static const string gpio_driver_path = "/sys/class/gpio";
 static const string export_path= gpio_driver_path + "/export";
@@ -29,7 +28,6 @@ Timer::~Timer(){
 
 bool Timer::getTimerBegin() {
 
-    //Open the files to be checked
     start_file.open(start_path + "/value");
     if(!start_file.is_open())
         cout << "Error on file " << start_path << "/value" << endl;
@@ -42,9 +40,16 @@ bool Timer::getTimerBegin() {
 }
 
 void Timer::setTimerEnd() {
-    finis_file << ON << endl;
-    sleep_for(milliseconds(200));
-    finis_file << OFF << endl;
+
+    finis_file.open(finis_path + "/value");
+    if(!finis_file.is_open())
+        cout << "Error on file " << finis_path << "/value" << endl;
+    else {
+        finis_file << ON << endl;
+        sleep_for(milliseconds(200));
+        finis_file << OFF << endl;
+        finis_file.close();
+    }
 }
 
 void Timer::gpioSetup() {
@@ -74,10 +79,6 @@ void Timer::gpioSetup() {
         finis_file << "out" << endl;
         finis_file.close();
     }
-
-    finis_file.open(finis_path + "/value");
-    if(!finis_file.is_open())
-        cout << "Error on file " << finis_path << "/value" << endl;
 }
 
 void Timer::gpioBreakup() {
@@ -91,4 +92,14 @@ void Timer::gpioBreakup() {
         unexport_file << finis_pin << endl;
         export_file.close();
     }  
+}
+
+void keyboardExit(int signum, Timer *t) {
+
+    static Timer *aux = NULL;
+    aux = t;
+    if(signum == SIGINT) {
+        delete aux;
+        exit(signum);
+    }
 }
