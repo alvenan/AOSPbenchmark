@@ -1,6 +1,5 @@
 #include <chrono>
 #include <thread>
-#include <signal.h>
 #include "../timer/timer.h"
 #include "../algorithms/algorithms.h"
 
