@@ -1,6 +1,6 @@
 #include <chrono>
 #include <thread>
-#include "../timer/timer.h"
+#include "timer.h"
 #include "../algorithms/algorithms.h"
 
 #define N_TEST 5

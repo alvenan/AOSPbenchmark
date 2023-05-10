@@ -3,31 +3,25 @@ cc_binary {
         vendor: true,
         srcs: [ 
                 "algorithms/algorithms.cpp",
-                "timer/timer.cpp",
+                "bench_test_native/timer.cpp",
                 "bench_test_native/native_test.cpp", 
         ],
-        cflags: [ "-fexceptions",
+        cflags: [ 
+                "-fexceptions",
                 "-Wreturn-type",
-                "-fstandalone-debug", ],      
-        arch: {
-                arm64: {
-                        strip: {
-                                all: true,
-                                keep_symbols_and_debug_frame: true,
-                                keep_symbols_list: ["symbol"],
-                        },
-                },
-        },
+        ],
 }
 
 cc_binary {
-    name: "jni_algtest",
-    vendor: true,
-    srcs: [ 
-            "algorithms/algorithms.cpp",
-            "timer/timer.cpp",
-            "bench_test_native/native_test.cpp", 
-    ],
-    cflags: [ "-fexceptions",
-              "-Wreturn-type" ],
+        name: "jni_algtest",
+        vendor: true,
+        srcs: [ 
+                "algorithms/algorithms.cpp",
+                "bench_test_native/timer.cpp",
+                "bench_test_native/native_test.cpp", 
+        ],
+        cflags: [ 
+                "-fexceptions",
+                "-Wreturn-type" 
+        ],
 }
