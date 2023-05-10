@@ -96,8 +96,7 @@ void Timer::gpioBreakup() {
 
 void keyboardExit(int signum, Timer *t) {
 
-    static Timer *aux = NULL;
-    aux = t;
+    static Timer *aux = t;
     if(signum == SIGINT) {
         delete aux;
         exit(signum);
