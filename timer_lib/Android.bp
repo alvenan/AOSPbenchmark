@@ -1,0 +1,5 @@
+cc_library {
+    name: "timer_lib",
+    srcs: [ "timer.cc" ],
+    vendor: true,
+}

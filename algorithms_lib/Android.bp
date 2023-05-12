@@ -1,0 +1,5 @@
+cc_library {
+    name: "algorithms_lib",
+    srcs: [ "algorithms.cc" ],
+    vendor: true,
+}
