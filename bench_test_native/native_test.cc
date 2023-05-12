@@ -8,9 +8,6 @@ int main() {
 
     Timer *timer = new Timer();
 
-    keyboardExit(0, timer);
-    signal(SIGINT, (void (*)(int))keyboardExit);
-
     for(int i=0; i<=N_TEST; i++) {
         while(timer->getTimerBegin());
 

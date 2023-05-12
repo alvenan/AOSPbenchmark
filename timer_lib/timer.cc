@@ -19,6 +19,8 @@ static const string finis_path = gpio_driver_path + "/gpio" + to_string(finis_pi
 
 
 Timer::Timer(){
+    keyboardExit(0, this);
+    signal(SIGINT, (void (*)(int))keyboardExit);
     gpioSetup();
 }
 
