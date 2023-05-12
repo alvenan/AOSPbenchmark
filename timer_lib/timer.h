@@ -1,9 +1,7 @@
 #ifndef __TIMER_H__
 #define __TIMER_H__
 
-#include <iostream>
 #include <fstream>
-#include <signal.h>
 
 using namespace std;
 
@@ -14,13 +12,12 @@ private:
     fstream start_file, finis_file;
     void gpioSetup();
     void gpioBreakup();
+    static void keyboardExit(int signum, Timer *t);
 public:
     Timer();
     ~Timer();
     bool getTimerBegin();
     void setTimerEnd();
 };
-
-void keyboardExit(int signum, Timer *t);
 
 #endif

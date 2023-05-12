@@ -1,7 +1,8 @@
+#include <iostream>
 #include <chrono>
 #include <thread>
+#include <signal.h>
 #include "timer.h"
-
 
 #define ON 1
 #define OFF 0
@@ -29,7 +30,6 @@ Timer::~Timer(){
 }
 
 bool Timer::getTimerBegin() {
-
     start_file.open(start_path + "/value");
     if(!start_file.is_open())
         cout << "Error on file " << start_path << "/value" << endl;
@@ -42,7 +42,6 @@ bool Timer::getTimerBegin() {
 }
 
 void Timer::setTimerEnd() {
-
     finis_file.open(finis_path + "/value");
     if(!finis_file.is_open())
         cout << "Error on file " << finis_path << "/value" << endl;
@@ -55,7 +54,6 @@ void Timer::setTimerEnd() {
 }
 
 void Timer::gpioSetup() {
-
     //Export Timer GPIOs
     export_file.open(export_path);
     if(!export_file.is_open())
@@ -96,8 +94,7 @@ void Timer::gpioBreakup() {
     }  
 }
 
-void keyboardExit(int signum, Timer *t) {
-
+void Timer::keyboardExit(int signum, Timer *t) {
     static Timer *aux = t;
     if(signum == SIGINT) {
         delete aux;
