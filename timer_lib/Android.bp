@@ -1,5 +1,6 @@
 cc_library {
     name: "timer_lib",
-    srcs: [ "timer.cc" ],
+    srcs: [ "timer_lib.cc" ],
     vendor: true,
+    owner: "Alison Venancio <alison.venancio@gmail.com>",
 }

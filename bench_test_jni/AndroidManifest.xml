@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="vendor.alvenan.javanativetestservice"
+    android:sharedUserId="android.uid.system" >
+    <application android:name=".JavaNativeTestService"
+        android:persistent="true" >
+    </application>
+    <permission
+        android:name="vendor.alvenan.javanativetestservice.permission.JAVANATIVETEST"
+        android:protectionLevel="normal" />
+</manifest>

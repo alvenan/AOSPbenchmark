@@ -2,7 +2,7 @@
 #include <chrono>
 #include <thread>
 #include <signal.h>
-#include "timer.h"
+#include "timer_lib.h"
 
 #define ON 1
 #define OFF 0
@@ -41,7 +41,7 @@ bool Timer::getTimerBegin() {
     return true;
 }
 
-void Timer::setTimerEnd() {
+void Timer::setTimer() {
     finis_file.open(finis_path + "/value");
     if(!finis_file.is_open())
         cout << "Error on file " << finis_path << "/value" << endl;

@@ -17,7 +17,7 @@ public:
     Timer();
     ~Timer();
     bool getTimerBegin();
-    void setTimerEnd();
+    void setTimer();
 };
 
 #endif

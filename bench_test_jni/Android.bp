@@ -1,0 +1,22 @@
+android_app {
+    name: "JniTestService",
+    owner: "Álison Venâncio <alison.venancio@gmail.com>",
+    srcs: [
+        "src/**/*.java",
+    ],
+    static_libs: ["vendor.alvenan.javanativetestservice"],
+    optimize: {
+        enabled: false
+    },
+    certificate: "platform",
+    platform_apis: true,
+    privileged: true,
+}
+
+java_library_static {
+    name: "vendor.alvenan.javanativetestservice",
+    vendor: true,
+    srcs: [ "src/**/IJavaNativeTestService.aidl" ],
+    installable: true,
+    sdk_version: "current",
+}
