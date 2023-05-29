@@ -15,13 +15,12 @@ static const int finis_pin = 21; //OUT
 
 static const string gpio_driver_path = "/sys/class/gpio";
 static const string export_path= gpio_driver_path + "/export";
+static const string unexport_path= gpio_driver_path + "/unexport";
 static const string start_path = gpio_driver_path + "/gpio" + to_string(start_pin);
 static const string finis_path = gpio_driver_path + "/gpio" + to_string(finis_pin);
 
 
 Timer::Timer(){
-    keyboardExit(0, this);
-    signal(SIGINT, (void (*)(int))keyboardExit);
     gpioSetup();
 }
 
@@ -29,7 +28,7 @@ Timer::~Timer(){
     gpioBreakup();
 }
 
-bool Timer::getTimerBegin() {
+bool Timer::isReady() {
     start_file.open(start_path + "/value");
     if(!start_file.is_open())
         cout << "Error on file " << start_path << "/value" << endl;
@@ -41,7 +40,7 @@ bool Timer::getTimerBegin() {
     return true;
 }
 
-void Timer::setTimer() {
+void Timer::trigger() {
     finis_file.open(finis_path + "/value");
     if(!finis_file.is_open())
         cout << "Error on file " << finis_path << "/value" << endl;
@@ -55,13 +54,13 @@ void Timer::setTimer() {
 
 void Timer::gpioSetup() {
     //Export Timer GPIOs
-    export_file.open(export_path);
-    if(!export_file.is_open())
+    un_export_file.open(export_path);
+    if(!un_export_file.is_open())
         cout << "Error on file " << export_path << endl;
     else {
-        export_file << start_pin << endl;
-        export_file << finis_pin << endl;
-        export_file.close();
+        un_export_file << start_pin << endl;
+        un_export_file << finis_pin << endl;
+        un_export_file.close();
     }
 
     //Set GPIO Directions
@@ -83,21 +82,13 @@ void Timer::gpioSetup() {
 
 void Timer::gpioBreakup() {
     //Unexport Timer GPIOs
-    unexport_file.open(gpio_driver_path + "/unexport");
-    if(!unexport_file.is_open())
-        cout << "Error on file " << gpio_driver_path << "/unexport" << endl;
+    un_export_file.open(unexport_path);
+    if(!un_export_file.is_open())
+        cout << "Error on file " << unexport_path << endl;
 
     else {
-        unexport_file << start_pin << endl;
-        unexport_file << finis_pin << endl;
-        export_file.close();
+        un_export_file << start_pin << endl;
+        un_export_file << finis_pin << endl;
+        un_export_file.close();
     }  
-}
-
-void Timer::keyboardExit(int signum, Timer *t) {
-    static Timer *aux = t;
-    if(signum == SIGINT) {
-        delete aux;
-        exit(signum);
-    }
 }

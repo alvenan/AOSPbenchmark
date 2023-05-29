@@ -8,16 +8,15 @@ using namespace std;
 class Timer {
 private:
     bool is_timer_started = false;
-    ofstream export_file, unexport_file;
+    ofstream un_export_file;
     fstream start_file, finis_file;
     void gpioSetup();
     void gpioBreakup();
-    static void keyboardExit(int signum, Timer *t);
 public:
     Timer();
     ~Timer();
-    bool getTimerBegin();
-    void setTimer();
+    bool isReady();
+    void trigger();
 };
 
 #endif

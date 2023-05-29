@@ -16,22 +16,22 @@ class JavaNativeTestServiceImpl extends IJavaNativeTestService.Stub {
         mContext = context;
     }
 
-    public boolean getTimerBegin() {
+    public boolean timerIsReady() {
         mContext.enforceCallingOrSelfPermission(JAVANATIVETEST_PERM, null);
-        return nativeGetTimerBegin();
+        return nativeTimerIsReady();
     }
     
-    public void setTimer() {
+    public void timerTrigger() {
         mContext.enforceCallingOrSelfPermission(JAVANATIVETEST_PERM, null);
-        nativeSetTimer();
+        nativeTimerTrigger();
     }
 
-    public void testExec() {
+    public void algorithmExec() {
         mContext.enforceCallingOrSelfPermission(JAVANATIVETEST_PERM, null);
-        nativeTestExec();
+        nativeAlgorithmExec();
     }
 
-    private static native boolean nativeGetTimerBegin();
-    private static native void nativeSetTimer();
-    private static native void nativeTestExec();
+    private static native boolean nativeTimerIsReady();
+    private static native void nativeTimerTrigger();
+    private static native void nativeAlgorithmExec();
 }

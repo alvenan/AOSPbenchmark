@@ -8,15 +8,15 @@ int main() {
     Timer timer;
 
     for(int i=0; i<=N_TEST; i++) {
-        while(timer.getTimerBegin());
+        while(timer.isReady());
 
         cout << "Começa o teste " << i << endl;
-        timer.setTimer();
+        timer.trigger(); //Timer ON
 
         //Início Chamada de Testes
         //Fim da Chamada de Testes
 
-        timer.setTimer();
+        timer.trigger(); //Timer OFF
     }
     return 0;
 }

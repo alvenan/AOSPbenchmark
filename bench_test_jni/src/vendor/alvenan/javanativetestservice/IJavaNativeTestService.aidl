@@ -1,8 +1,8 @@
 package vendor.alvenan.javanativetestservice;
 
 interface IJavaNativeTestService {
-    boolean getTimerBegin();
-    void setTimer();
+    boolean timerIsReady();
+    void timerTrigger();
 
-    void testExec();
+    void algorithmExec();
 }

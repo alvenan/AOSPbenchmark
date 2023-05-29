@@ -1,16 +1,10 @@
 cc_binary {
         name: "native_algtest",
+        owner: "Álison Venâncio <alison.venancio@gmail.com>",
         vendor: true,
-        owner: "Alison Venancio <alison.venancio@gmail.com>",
-        srcs: [ 
-                "native_test.cc", 
-        ],
-        static_libs: [
-                "timer_lib",
-        ],
-        include_dirs: [
-                "vendor/alvenan/aosp_bench/timer_lib",
-        ],
+        srcs: ["native_test.cc"],
+        static_libs: ["timer_lib"],
+        include_dirs: ["vendor/alvenan/aosp_bench/timer_lib"],
         cflags: [ 
                 "-fexceptions",
                 "-Wreturn-type",
