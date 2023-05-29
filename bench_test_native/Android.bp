@@ -1,7 +1,7 @@
 cc_binary {
         name: "native_algtest",
         vendor: true,
-        owner: "Alison Venancio",
+        owner: "Alison Venancio <alison.venancio@gmail.com>",
         srcs: [ 
                 "native_test.cc", 
         ],
