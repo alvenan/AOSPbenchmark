@@ -1,7 +1,10 @@
 android_app {
     name: "JavaNativeTestService",
     owner: "Álison Venâncio <alison.venancio@gmail.com>",
-    srcs: ["src/**/*.java"],    
+    srcs: [
+        "src/**/JavaNativeTestServiceImpl.java",
+        "src/**/JavaNativeTestService.java"
+    ],    
     required: [
         "vendor.alvenan.javanativetestservice",
         "libjavanativetestservice_jni",
