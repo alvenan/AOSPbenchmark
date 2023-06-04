@@ -1,0 +1,19 @@
+aidl_interface {
+    name: "vendor.alvenan.timer",
+    owner: "Álison Venâncio <alison.venancio@gmail.com>",
+    vendor: true,
+    srcs: [ "vendor/alvenan/timer/*.aidl" ],
+    stability: "vintf",
+    backend: {
+        cpp: {
+            enabled: true,
+        },
+        java: {
+            enabled: true,
+            sdk_version: "module_current",
+        },
+        ndk: {
+            enabled: true,
+        },
+    },
+}

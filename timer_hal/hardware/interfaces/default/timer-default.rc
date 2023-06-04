@@ -1,0 +1,6 @@
+service vendor.alvenan.timer /vendor/bin/hw/vendor.alvenan.timer-service
+    interface aidl vendor.alvenan.timer.ITimer/default
+    seclabel u:r:su:s0
+    class hal
+    user root
+    group root
