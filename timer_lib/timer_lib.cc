@@ -1,7 +1,3 @@
-#include <iostream>
-#include <chrono>
-#include <thread>
-#include <signal.h>
 #include "timer_lib.h"
 
 #define ON 1

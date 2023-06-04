@@ -12,12 +12,13 @@ int main() {
 
     const string instance = string() + ITimer::descriptor + "/default";
     binder_status_t status = AServiceManager_addService(timer_service->asBinder().get(),instance.c_str());
+    
     if(status != STATUS_OK) {
         ALOG(LOG_ERROR, "TimerService", "Service not registred with error code %d", status);    
         return EXIT_FAILURE;
     }
 
-    ALOG(LOG_INFO, "TimerService", "Serviço iniciado com nome %s", instance.c_str());
+    ALOG(LOG_INFO, "TimerService", "Service started with name %s", instance.c_str());
     ABinderProcess_joinThreadPool();
 
     ALOG(LOG_ERROR, "TimerService", "Something wrong is not right with the service!");    

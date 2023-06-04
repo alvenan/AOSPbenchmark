@@ -1,1 +1,0 @@
-libjavanativetestservice_jni.so

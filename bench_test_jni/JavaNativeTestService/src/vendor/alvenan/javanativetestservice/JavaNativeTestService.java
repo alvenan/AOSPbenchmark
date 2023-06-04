@@ -5,7 +5,7 @@ import android.os.ServiceManager;
 import android.util.Log;
 
 public class JavaNativeTestService extends Application {
-    private static final String SERVICE_NAME = "javanativetest";
+    private static final String SERVICE_NAME = "vendor.alvenan.javanativetest";
     private JavaNativeTestServiceImpl serviceImpl;
 
     public void onCreate() {

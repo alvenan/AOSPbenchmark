@@ -2,6 +2,9 @@
 #define __TIMER_H__
 
 #include <fstream>
+#include <iostream>
+#include <chrono>
+#include <thread>
 
 using namespace std;
 

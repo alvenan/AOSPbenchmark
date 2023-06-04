@@ -9,22 +9,6 @@ extern "C" {
 #endif
 /*
  * Class:     vendor_alvenan_javanativetestservice_JavaNativeTestServiceImpl
- * Method:    nativeTimerIsReady
- * Signature: ()Z
- */
-JNIEXPORT jboolean JNICALL Java_vendor_alvenan_javanativetestservice_JavaNativeTestServiceImpl_nativeTimerIsReady
-  (JNIEnv *, jclass);
-
-/*
- * Class:     vendor_alvenan_javanativetestservice_JavaNativeTestServiceImpl
- * Method:    nativeTimerTrigger
- * Signature: ()V
- */
-JNIEXPORT void JNICALL Java_vendor_alvenan_javanativetestservice_JavaNativeTestServiceImpl_nativeTimerTrigger
-  (JNIEnv *, jclass);
-
-/*
- * Class:     vendor_alvenan_javanativetestservice_JavaNativeTestServiceImpl
  * Method:    nativeAlgorithmExec
  * Signature: ()V
  */

@@ -7,7 +7,6 @@ cc_binary {
     vintf_fragments: [ "timer-default.xml" ],
     vendor: true,
     static_libs: [ "timer_lib" ],
-    include_dirs: [ "vendor/alvenan/aosp_bench/timer_lib" ],
     required: [ "timer_lib" ], 
     shared_libs: [
         "libbase",
