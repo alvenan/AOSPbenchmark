@@ -14,7 +14,7 @@ int main() {
     binder_status_t status = AServiceManager_addService(timer_service->asBinder().get(),instance.c_str());
     
     if(status != STATUS_OK) {
-        ALOG(LOG_ERROR, "TimerService", "Service not registred with error code %d", status);    
+        ALOG(LOG_ERROR, "TimerService", "Service not registered, error code %d", status);    
         return EXIT_FAILURE;
     }
 
