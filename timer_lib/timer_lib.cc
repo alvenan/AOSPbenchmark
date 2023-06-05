@@ -1,10 +1,13 @@
+#include <iostream>
+#include <chrono>
+#include <thread>
 #include "timer_lib.h"
 
 #define ON 1
 #define OFF 0
 
-using namespace std::this_thread;
-using namespace std::chrono;
+using std::this_thread::sleep_for;
+using std::chrono::milliseconds;
 
 static const int start_pin = 20; //IN
 static const int finis_pin = 21; //OUT
@@ -21,7 +24,7 @@ Timer::Timer(){
 }
 
 Timer::~Timer(){ 
-    gpioBreakup();
+    // gpioBreakup();
 }
 
 bool Timer::isReady() {
