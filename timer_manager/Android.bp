@@ -1,0 +1,17 @@
+java_library {
+    name: "vendor.alvenan.timermanager",
+    srcs: [ "src/**/*.java" ],
+    static_libs: [ "vendor.alvenan.timer-V1-java" ],
+    required: [ "vendor.alvenan.timermanager.xml" ],
+    system_ext_specific: true,
+    platform_apis: true,
+    installable: true,
+}
+    
+prebuilt_etc {
+    name: "vendor.alvenan.timermanager.xml",
+    src: "vendor.alvenan.timermanager.xml",
+    filename_from_src: true,
+    relative_install_path: "permissions",
+    system_ext_specific: true,
+}

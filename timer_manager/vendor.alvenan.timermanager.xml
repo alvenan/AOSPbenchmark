@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<permissions>
+    <library name="vendor.alvenan.timermanager" file="/system_ext/framework/vendor.alvenan.timermanager.jar"/>
+</permissions>
