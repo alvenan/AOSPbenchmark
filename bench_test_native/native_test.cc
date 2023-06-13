@@ -1,9 +1,8 @@
 #include <iostream>
-#include <chrono>
-#include <thread>
 #include <timer_lib.h>
+#include <algorithms.h>
 
-#define N_TEST 5
+#define N_TEST 100
 
 int main() {
 
@@ -12,12 +11,11 @@ int main() {
     for(int i=0; i<N_TEST; i++) {
         while(timer.isReady());
 
-        cout << "Começa o teste " << i << endl;
+        cout << "Starting algorithm test Nº" << i << endl;
         timer.trigger(); //Timer ON
 
         //Início Chamada de Testes
-        std::this_thread::sleep_for(
-            std::chrono::milliseconds(200));
+        cout << testfunc() << endl;
         //Fim da Chamada de Testes
 
         timer.trigger(); //Timer OFF
