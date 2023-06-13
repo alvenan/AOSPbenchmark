@@ -1,0 +1,48 @@
+cc_library_shared {
+    name: "libjavanativetestapp",
+    owner: "Álison Venâncio <alison.venancio@gmail.com>",
+    vendor: true,
+    srcs: [ "app/src/main/cpp/*.cpp" ],
+    header_libs: [ "jni_headers" ],
+    shared_libs: [ 
+        "libutils",
+        "liblog",
+    ],
+}
+
+java_library_static {
+    name: "vendor.alvenan.javanativetestapp",
+    owner: "Álison Venâncio <alison.venancio@gmail.com>",
+    srcs: [ "app/src/main/aidl/**/*.aidl" ],
+    installable: true,
+    sdk_version: "current",
+}
+
+android_app {
+    name: "JavaNativeTestApp",
+    owner: "Álison Venâncio <alison.venancio@gmail.com>",
+    srcs: [ "app/src/main/java/**/*.java" ],
+    resource_dirs: [ "app/src/main/res" ],
+    static_libs: [
+        "vendor.alvenan.timermanager",
+        "vendor.alvenan.javanativetestapp",
+        "com.google.android.material_material",
+        "androidx-constraintlayout_constraintlayout",
+        "androidx.test.ext.junit",
+        "androidx.test.espresso.core",
+    ],
+    required: [
+        "vendor.alvenan.javanativetestapp",
+        "vendor.alvenan.timermanager",
+        "libjavanativetestapp",
+    ],
+    optimize: {
+        enabled: false
+    },
+    system_ext_specific: true,
+    platform_apis: true,
+    certificate: "platform",
+    use_embedded_native_libs: true,
+    privileged: true,
+    manifest: "app/src/main/AndroidManifest.xml",
+}

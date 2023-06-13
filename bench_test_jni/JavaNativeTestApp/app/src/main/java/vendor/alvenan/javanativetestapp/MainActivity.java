@@ -6,18 +6,13 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.widget.Toast;
+import android.os.IBinder;
 
-import vendor.alvenan.javanativetestapp.databinding.ActivityMainBinding;
+import vendor.alvenan.javanativetestapp.IJavaNativeTestApp;
 import vendor.alvenan.timermanager.TimerManager;
 
 public class MainActivity extends AppCompatActivity {
-
-    // Used to load the 'javanativetestapp' library on application startup.
-    static {
-        System.loadLibrary("javanativetestapp");
-    }
-
-    private ActivityMainBinding binding;
+    private JavaNativeTestAppImpl jniFunc;
     private TimerManager timer = TimerManager.getInstance();
     private final static int N_TEST = 100;
     Handler handler = new Handler();
@@ -26,8 +21,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
+        jniFunc = new JavaNativeTestAppImpl();
         Log.i("JavaNativeTestApp", "Application started");
 
         // Example of a call to a native method
@@ -38,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.i("JavaNativeTestApp", "Comaça o teste " + String.valueOf(i));
 
                 timer.trigger();
-//                algorithmExec();
+                jniFunc.algorithmExec();
                 timer.trigger();
 
             } catch (android.os.RemoteException e) {
@@ -49,6 +43,4 @@ public class MainActivity extends AppCompatActivity {
         MainActivity.this.finish();
         System.exit(0);
     }
-
-    public native void algorithmExec();
 }
