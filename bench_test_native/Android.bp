@@ -1,8 +1,8 @@
 cc_binary {
-        name: "native_algtest",
+        name: "NativeTestApp",
         owner: "Álison Venâncio <alison.venancio@gmail.com>",
         vendor: true,
-        srcs: [ "native_test.cc" ],
+        srcs: [ "nativetestapp.cc" ],
         static_libs: [
                 "timer_lib", 
                 "algorithms_lib"

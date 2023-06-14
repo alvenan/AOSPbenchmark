@@ -2,7 +2,7 @@
 #include <timer_lib.h>
 #include <algorithms.h>
 
-#define N_TEST 100
+#define N_TEST 10
 
 int main() {
 
