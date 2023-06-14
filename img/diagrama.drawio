@@ -1,0 +1,49 @@
+<mxfile host="app.diagrams.net" modified="2023-06-14T01:40:47.202Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36" etag="UNzZh4AgCgaFR4H8JNty" version="21.2.3" type="device">
+  <diagram id="2EX4hd7SqHqrbZncTG9L" name="Página-1">
+    <mxGraphModel dx="1505" dy="559" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="6dV-rh6kuVG6Q5CaRBvg-1" value="Raspberry Pi" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="179" y="160" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="6dV-rh6kuVG6Q5CaRBvg-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="6dV-rh6kuVG6Q5CaRBvg-2" target="6dV-rh6kuVG6Q5CaRBvg-4" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="6dV-rh6kuVG6Q5CaRBvg-2" value="Arduino&lt;br&gt;(Cronômetro)" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="179" y="270" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="6dV-rh6kuVG6Q5CaRBvg-4" value="Host" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="380" y="160" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="6dV-rh6kuVG6Q5CaRBvg-21" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;&lt;i&gt;1º Avisa que os testes começaram&lt;br&gt;2º Envia os tempos de execução de cada teste&lt;br&gt;&lt;/i&gt;&lt;/font&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="308" y="300" width="211" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="6dV-rh6kuVG6Q5CaRBvg-24" value="&lt;div style=&quot;&quot;&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;&lt;i&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;Trigger&amp;nbsp; para iniciar/finalizar&amp;nbsp; cronômentro para cada teste&lt;/font&gt;&lt;/i&gt;&lt;/span&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=right;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="60" y="233" width="146" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="lS-lrM0nif6kFlEhC17y-3" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" parent="1" source="6dV-rh6kuVG6Q5CaRBvg-1" target="6dV-rh6kuVG6Q5CaRBvg-2" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="459" y="300" as="sourcePoint" />
+            <mxPoint x="509" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lS-lrM0nif6kFlEhC17y-4" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;exitX=0.75;exitY=0;exitDx=0;exitDy=0;" parent="1" source="6dV-rh6kuVG6Q5CaRBvg-2" target="6dV-rh6kuVG6Q5CaRBvg-1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="339" y="260" as="sourcePoint" />
+            <mxPoint x="349" y="220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lS-lrM0nif6kFlEhC17y-5" value="&lt;div style=&quot;font-size: 10px;&quot;&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;&lt;i&gt;Notifica se o cronômetro está disponível&lt;/i&gt;&lt;/font&gt;&lt;/div&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="272" y="238" width="118" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="IdqGRFoC44NrrIiD8skG-6" value="&lt;b&gt;GPIO&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="209" y="240" width="60" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="IdqGRFoC44NrrIiD8skG-9" value="&lt;b&gt;UART&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="340" y="276" width="60" height="17" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
