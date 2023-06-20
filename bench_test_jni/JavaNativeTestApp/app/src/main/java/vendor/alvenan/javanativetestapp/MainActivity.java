@@ -10,7 +10,7 @@ import vendor.alvenan.javanativetestapp.IJavaNativeTestApp;
 import vendor.alvenan.timermanager.TimerManager;
 
 public class MainActivity extends AppCompatActivity {
-    private final static int N_TEST = 100;
+    private final static int N_TEST = 10;
     private JavaNativeTestAppImpl jniFuncs = new JavaNativeTestAppImpl();
     private TimerManager timer = TimerManager.getInstance();
 
@@ -26,9 +26,11 @@ public class MainActivity extends AppCompatActivity {
                 while (timer.isReady()) ;
                 Log.i("JavaNativeTestApp: Java", "Starting algorithm test Nº" + String.valueOf(i));
 
-                timer.trigger();
+                timer.trigger();  //Timer ON
+                //Início Chamada de Testes
                 jniFuncs.algorithmExec();
-                timer.trigger();
+                //Fim da Chamada de Testes
+                timer.trigger(); //Timer OFF
 
             } catch (android.os.RemoteException e) {
                 Toast.makeText(this, "Error when tring to access Binder!", Toast.LENGTH_LONG).show();
