@@ -21,8 +21,8 @@ public class MainActivity extends AppCompatActivity {
         Log.i("JavaNativeTestApp: Java", "Application started");
 
         // Example of a call to a native method
-        for (int i=0; i<N_TEST; i++) {
-            try {
+        try {
+            for (int i=0; i<N_TEST; i++) {
                 while (timer.isReady()) ;
                 Log.i("JavaNativeTestApp: Java", "Starting algorithm test Nº" + String.valueOf(i));
 
@@ -31,11 +31,11 @@ public class MainActivity extends AppCompatActivity {
                 jniFuncs.algorithmExec();
                 //Fim da Chamada de Testes
                 timer.trigger(); //Timer OFF
-
-            } catch (android.os.RemoteException e) {
+            }
+            timer.reset(); 
+        } catch (android.os.RemoteException e) {
                 Toast.makeText(this, "Error when tring to access Binder!", Toast.LENGTH_LONG).show();
                 Log.e("JavaNativeTestApp: Java", "Error when tring to access Binder!");
-            }
         }
         MainActivity.this.finish();
         System.exit(0);

@@ -13,11 +13,12 @@ using ndk::ScopedAStatus;
 namespace aidl::vendor::alvenan::timer {
 
 class TimerService : public BnTimer {
+    private:
+        Timer t;
     public:
         ScopedAStatus isReady(bool* _aidl_return) override;
         ScopedAStatus trigger()  override;
-    private:
-        Timer t;
+        ScopedAStatus reset()  override;
 };
 
 }

@@ -5,9 +5,6 @@ aidl_interface {
     srcs: [ "vendor/alvenan/timer/*.aidl" ],
     stability: "vintf",
     backend: {
-        cpp: {
-            enabled: true,
-        },
         java: {
             enabled: true,
             sdk_version: "module_current",

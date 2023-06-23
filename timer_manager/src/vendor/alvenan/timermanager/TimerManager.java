@@ -39,4 +39,8 @@ public class TimerManager {
     public void trigger() throws RemoteException {
         service.trigger();
     }
+
+    public void reset() throws RemoteException {
+        service.reset();
+    }
 }

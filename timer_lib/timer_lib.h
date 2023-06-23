@@ -9,7 +9,7 @@ class Timer {
 private:
     bool is_timer_started = false;
     ofstream un_export_file;
-    fstream start_file, finis_file;
+    fstream reset_file, isready_file, trigger_file;
     void gpioSetup();
     void gpioBreakup();
 public:
@@ -17,6 +17,7 @@ public:
     ~Timer();
     bool isReady();
     void trigger();
+    void reset();
 };
 
 #endif

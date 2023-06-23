@@ -20,5 +20,6 @@ int main() {
 
         timer.trigger(); //Timer OFF
     }
+    timer.reset();
     return 0;
 }

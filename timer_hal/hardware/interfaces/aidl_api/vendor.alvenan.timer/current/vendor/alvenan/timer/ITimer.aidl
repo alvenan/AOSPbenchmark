@@ -21,4 +21,5 @@ package vendor.alvenan.timer;
 interface ITimer {
   boolean isReady();
   void trigger();
+  void reset();
 }
