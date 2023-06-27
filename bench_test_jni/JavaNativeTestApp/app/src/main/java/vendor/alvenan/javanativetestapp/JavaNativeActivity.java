@@ -19,17 +19,31 @@ public class JavaNativeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         Log.i("JavaNativeTestApp", "Application started");
+        checkOffset();
         // qsortCall();
-        dijkstraCall();
+        // dijkstraCall();
 
         JavaNativeActivity.this.finish();
         System.exit(0);
     }
-
+    private void checkOffset() {
+        try {
+            timer.reset(); 
+            for(int i=1;i<=N_LOOP;i++) {
+                while (timer.isReady());
+                timer.trigger();  //Timer ON
+                timer.trigger(); //Timer OFF      
+            }
+        } catch (android.os.RemoteException e) {
+                Toast.makeText(this, "Error when tring to access Binder!", Toast.LENGTH_LONG).show();
+                Log.e("JavaNativeTestApp: Java", "Error when tring to access Binder!");
+        }
+    }
     private void qsortCall() {
         String file_path;
         int arr_size;
         try {
+            timer.reset(); 
             for(int i=1;i<=N_LOOP;i++) {
                 for (int j=1; j<=6; j++) {
 
@@ -48,7 +62,6 @@ public class JavaNativeActivity extends AppCompatActivity {
                     
                     Log.i("JavaNativeTestApp", "Finished Quick Sort on file" + file_path);
                 }
-                timer.reset(); 
             }
         } catch (android.os.RemoteException e) {
                 Toast.makeText(this, "Error when tring to access Binder!", Toast.LENGTH_LONG).show();
@@ -60,6 +73,7 @@ public class JavaNativeActivity extends AppCompatActivity {
         String file_path;
         int graph_size;
         try {
+            timer.reset(); 
             for(int i=1;i<=N_LOOP;i++) {
                 for (int j=0; j<=3; j++) {
 
@@ -78,7 +92,6 @@ public class JavaNativeActivity extends AppCompatActivity {
                     
                     Log.i("JavaNativeTestApp", "Finished Dijkstra on file " + file_path);
                 }
-                timer.reset(); 
             }
         } catch (android.os.RemoteException e) {
                 Toast.makeText(this, "Error when tring to access Binder!", Toast.LENGTH_LONG).show();

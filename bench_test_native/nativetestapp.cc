@@ -5,6 +5,7 @@
 
 #define N_LOOP 100
 
+void check_offset();
 void qsort_call();
 void dijkstra_call();
 
@@ -13,21 +14,31 @@ int main(int, char* argv[]) {
     ALOG(LOG_INFO, "NativeTestApp", "Application started");
 
     switch (atoi(argv[1])) {
-    case 0:
+    case 1:
         ALOG(LOG_INFO, "NativeTestApp", "Calling Quick Sort Algorithm");
         qsort_call();
     break;
-    case 1:
+    case 2:
         ALOG(LOG_INFO, "NativeTestApp", "Calling Dijkstra Algorithm");
         dijkstra_call();
     break;
     default:
-        ALOG(LOG_INFO, "NativeTestApp", "Option %s doen't exist", argv[1]);
+        check_offset();
         break;
     }
     return 0;
 }
 
+void check_offset() {
+    Timer timer;
+    timer.reset();
+    for(int i=1;i<=N_LOOP; i++){
+            while(timer.isReady());
+
+            timer.trigger(); //Timer ON
+            timer.trigger(); //Timer OFF
+    }
+}
 void qsort_call() {
     int arr_size;
     string file_path;
@@ -51,7 +62,6 @@ void qsort_call() {
             
             ALOG(LOG_INFO, "NativeTestApp", "Finished Quick Sort on file %s", file_path.c_str());
         }
-        timer.reset();
     }
 }
 
@@ -77,6 +87,5 @@ void dijkstra_call() {
             
             ALOG(LOG_INFO, "NativeTestApp", "Finished Dijkstra  on file %s", file_path.c_str());
         }
-        timer.reset();
     }
 }
