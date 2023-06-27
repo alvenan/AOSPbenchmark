@@ -17,8 +17,8 @@ class TimerService : public BnTimer {
         Timer t;
     public:
         ScopedAStatus isReady(bool* _aidl_return) override;
-        ScopedAStatus trigger()  override;
-        ScopedAStatus reset()  override;
+        ScopedAStatus trigger() override;
+        ScopedAStatus reset() override;
 };
 
 }

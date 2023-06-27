@@ -1,7 +1,11 @@
 cc_library {
     name: "algorithms_lib",
     owner: "Álison Venâncio <alison.venancio@gmail.com>",
-    srcs: [ "algorithms.cc" ],
+    srcs: [ 
+        "algorithms.cc",
+        "qsort/qsort.cc",
+        "dijkstra/dijkstra.cc"
+    ],
     vendor_available: true,
     recovery_available: true,
     export_include_dirs: ["."],

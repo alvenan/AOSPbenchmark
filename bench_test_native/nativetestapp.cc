@@ -1,25 +1,82 @@
-#include <iostream>
 #include <timer_lib.h>
 #include <algorithms.h>
+#include <log/log.h>
+#include <math.h>
 
-#define N_TEST 10
+#define N_LOOP 100
 
-int main() {
+void qsort_call();
+void dijkstra_call();
 
-    Timer timer;
+int main(int, char* argv[]) {
 
-    for(int i=0; i<N_TEST; i++) {
-        while(timer.isReady());
+    ALOG(LOG_INFO, "NativeTestApp", "Application started");
 
-        cout << "Starting algorithm test Nº" << i << endl;
-        timer.trigger(); //Timer ON
-
-        //Início Chamada de Testes
-        cout << testfunc() << endl;
-        //Fim da Chamada de Testes
-
-        timer.trigger(); //Timer OFF
+    switch (atoi(argv[1])) {
+    case 0:
+        ALOG(LOG_INFO, "NativeTestApp", "Calling Quick Sort Algorithm");
+        qsort_call();
+    break;
+    case 1:
+        ALOG(LOG_INFO, "NativeTestApp", "Calling Dijkstra Algorithm");
+        dijkstra_call();
+    break;
+    default:
+        ALOG(LOG_INFO, "NativeTestApp", "Option %s doen't exist", argv[1]);
+        break;
     }
-    timer.reset();
     return 0;
+}
+
+void qsort_call() {
+    int arr_size;
+    string file_path;
+    Timer timer;
+    timer.reset();
+    for(int i=1;i<=N_LOOP; i++){
+        for(int j=1; j<=6; j++) {
+            
+            arr_size = pow(10,j);
+            file_path = "sdcard/qsort_input_data/qsort_input_" + to_string(arr_size) + "_"+ to_string(i) +".txt";
+
+            while(timer.isReady());
+
+            ALOG(LOG_INFO, "NativeTestApp", "Starting Quick Sort on file %s", file_path.c_str());
+
+            timer.trigger(); //Timer ON
+            //Início Chamada de Testes
+            qsortExec((char *) file_path.c_str(), arr_size);
+            //Fim da Chamada de Testes
+            timer.trigger(); //Timer OFF
+            
+            ALOG(LOG_INFO, "NativeTestApp", "Finished Quick Sort on file %s", file_path.c_str());
+        }
+        timer.reset();
+    }
+}
+
+void dijkstra_call() {
+    int graph_size;
+    string file_path;
+    Timer timer;
+    timer.reset();
+    for(int i=1;i<=N_LOOP; i++){
+        for(int j=0; j<4; j++) {
+            graph_size = (j==0)? 3 : pow(10,j);
+            file_path = "sdcard/dijkstra_input_data/dijkstra_input_" + to_string(graph_size) + "_"+ to_string(i) +".txt";
+
+            while(timer.isReady());
+
+            ALOG(LOG_INFO, "NativeTestApp", "Starting Dijkstra on file %s", file_path.c_str());
+
+            timer.trigger(); //Timer ON
+            //Início Chamada de Testes
+            dijkstraExec((char *) file_path.c_str(), graph_size);
+            //Fim da Chamada de Testes
+            timer.trigger(); //Timer OFF
+            
+            ALOG(LOG_INFO, "NativeTestApp", "Finished Dijkstra  on file %s", file_path.c_str());
+        }
+        timer.reset();
+    }
 }

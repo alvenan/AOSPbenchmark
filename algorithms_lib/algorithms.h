@@ -1,8 +1,10 @@
 #ifndef __ALGORITHMS_H__
 #define __ALGORITHMS_H__
 
-#include <string>
+#include "qsort/qsort.h"
+#include "dijkstra/dijkstra.h"
 
-std::string testfunc();
-void execPatricia();
+void qsortExec(char* input_path, int arr_size);
+void dijkstraExec(char* input_path, int graph_size);
+
 #endif
