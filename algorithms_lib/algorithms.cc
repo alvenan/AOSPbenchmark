@@ -35,3 +35,6 @@ void dijkstraExec(char* input_path, int graph_size){
     dijkstra(graph, 0, graph_size);
 }
 
+void fftExec(int N, int cplx) {
+    pffft_validate_N(N, cplx);
+}

@@ -4,7 +4,8 @@ cc_library {
     srcs: [ 
         "algorithms.cc",
         "qsort/qsort.cc",
-        "dijkstra/dijkstra.cc"
+        "dijkstra/dijkstra.cc",
+        "pffft/*.c"
     ],
     vendor_available: true,
     recovery_available: true,
