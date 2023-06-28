@@ -60,7 +60,7 @@ double frand() {
 }
 
 /* compare results with the regular fftpack */
-extern void pffft_validate_N(int N, int cplx) {
+void pffft_validate_N(int N, int cplx) {
   int Nfloat = N*(cplx?2:1);
   int Nbytes = Nfloat * sizeof(float);
   float *ref, *in, *out, *tmp, *tmp2;
