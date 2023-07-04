@@ -21,3 +21,9 @@ jstring input_path, jint graph_size) {
         dijkstraExec(jstr_to_char(env, input_path), graph_size);
 }
 
+extern "C" JNIEXPORT void JNICALL
+Java_vendor_alvenan_javanativetestapp_JavaNativeTestAppImpl_fftExec
+(JNIEnv* env, jobject, 
+jint N) {
+        fftExec(N);
+}
