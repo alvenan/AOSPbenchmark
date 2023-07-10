@@ -38,3 +38,23 @@ void dijkstraExec(char* input_path, int graph_size){
 void fftExec(int N) {
     pffft_validate_N(N, 0);
 }
+
+void rsaExec(char* input_path) {
+    ifstream input_file(input_path);
+    string message((istreambuf_iterator<char>(input_file)),istreambuf_iterator<char>());
+
+    primefiller();
+    setkeys();
+    // cout<<"enter the message\n";getline(cin,message);
+    // calling the encoding function
+    vector<int> coded = encoder(message);
+    // cout << "Initial message:\n" << message;
+    // cout << "\n\nThe encoded message(encrypted by public "
+            // "key)\n";
+    // for (auto& p : coded)
+    // cout << p;
+    // cout << "\n\nThe decoded message(decrypted by private "
+            // "key)\n";
+    // cout << decoder(coded) << endl;
+    decoder(coded);
+}

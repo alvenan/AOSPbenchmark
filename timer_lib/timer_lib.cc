@@ -36,7 +36,7 @@ bool Timer::isReady() {
     else{
         isready_file >> is_timer_started;
         isready_file.close();
-        return !is_timer_started;
+        return is_timer_started;
     }
     return true;
 }

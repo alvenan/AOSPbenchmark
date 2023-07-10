@@ -12,7 +12,6 @@
         android:layout_height="17dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="28dp"
-        android:text=""
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button" />
 
@@ -65,5 +64,17 @@
         android:text="Offset"
         app:layout_constraintStart_toEndOf="@+id/button4"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="628dp"
+        android:layout_marginTop="56dp"
+        android:backgroundTint="@color/design_default_color_error"
+        android:text="X"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

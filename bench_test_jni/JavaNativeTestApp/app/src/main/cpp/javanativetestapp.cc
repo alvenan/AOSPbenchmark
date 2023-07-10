@@ -1,5 +1,6 @@
 #include <jni.h>
 #include <algorithms.h>
+#include <log/log.h>
 
 char* jstr_to_char(JNIEnv* env, jstring jstr){
         const char* ch = env->GetStringUTFChars(jstr, 0);
@@ -25,5 +26,13 @@ extern "C" JNIEXPORT void JNICALL
 Java_vendor_alvenan_javanativetestapp_JavaNativeTestAppImpl_fftExec
 (JNIEnv*, jobject, 
 jint N) {
-        fftExec(N);
+
+        fftExec((int)N);
+}
+
+extern "C" JNIEXPORT void JNICALL
+Java_vendor_alvenan_javanativetestapp_JavaNativeTestAppImpl_rsaExec
+(JNIEnv* env, jobject, 
+jstring input_path) {
+        rsaExec(jstr_to_char(env, input_path));
 }
