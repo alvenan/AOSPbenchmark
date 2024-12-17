@@ -7,10 +7,10 @@
 The objective of this project is to utilize a Raspberry Pi 4B as the primary platform, complemented by an Arduino as the timer, to accurately measure the processing time of each algorithm.
 
 #### Diagram flux
-<img src="/img/diagrama.drawio.pdf" width="500">
+<img src="/img/diagram.png" width="500">
 
 #### Hardware circuit
-<img src="/img/circuito.pdf" width="500">
+<img src="/img/circuit.png" width="500">
 
 ### 2. Software
 
